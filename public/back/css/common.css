@@ -44,7 +44,9 @@ img{
     margin-top: 150px;
 }
 
-
+.mb_20{
+    margin-bottom: 20px;
+}
 /* 左侧侧边栏布局 */
 
 .lt_aside{
