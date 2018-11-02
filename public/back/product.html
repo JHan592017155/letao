@@ -96,7 +96,7 @@
     <!-- 添加模态框 -->
     <div  id="addModal" class="modal fade" tabindex="-1">
             <!-- modal-sm 小   modal-lg 大    默认中等  -->
-            <div class="modal-dialog modal-sm">
+            <div class="modal-dialog ">
     
               <div class="modal-content">
                 <form id="form">
@@ -111,7 +111,7 @@
                         <div class="dropdown">
                                 <!-- 按钮 -->
                                 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" >
-                                  <span id="dropdownText">请选择一级分类</span>
+                                  <span id="dropdownText">请选择二级分类</span>
                                   <span class="caret"></span>
                                 </button>
                                 <!-- 下拉列表 -->
@@ -119,30 +119,47 @@
                                    <!--挖个坑  -->
                                 </ul>
                         </div>
-                    <!-- 一级分类 id -->
-                    <input type="hidden" name="categoryId"> 
-                    <!-- hot 火热的品牌 火热1，不火热 0 -->
-                    <input type="hidden" name="hot" value="1">
+                    <!-- 二级分类 id -->
+                    <input type="hidden" name="brandId"> 
+                    <!-- 上下架 默认上架 -->
+                    <input type="hidden" name="statu" value="1">
                    </div>
 
                    <div class="form-group">
-                       <input type="text" name="brandName" class="form-control" placeholder="请输入二级分类" >
+                       <input type="text" name="proName" class="form-control" placeholder="请输入商品名称" >
                    </div>
+                   <div class="form-group">
+                       <textarea  name="proDesc" class="form-control" placeholder="请输入商品描述" rows="3" ></textarea>
+                   </div>
+                   <div class="form-group">
+                       <input type="text" name="num" class="form-control" placeholder="请输入商品库存" >
+                   </div>
+                   <div class="form-group">
+                        <input type="text" name="size" class="form-control" placeholder="请输入商品尺码" >
+                   </div>
+                   <div class="form-group">
+                        <input type="text" name="oldPrice" class="form-control" placeholder="请输入商品原价" >
+                   </div>
+                   <div class="form-group">
+                        <input type="text" name="price" class="form-control" placeholder="请输入商品现价" >
+                   </div>
+                   
 
                     <div class="form-group">
                         <label class="btn btn-default" for="fileupload">上传图片</label>
                           <!-- name 指定后台用于接收的参数名
                               data-url 后台文件上传的接口地址
                           -->
-                        <input type="file" name="pic1" data-url="/category/addSecondCategoryPic" id="fileupload" style="display: none">
+                        <input type="file" name="pic1" data-url="/product/addProductPic" id="fileupload" style="display: none" multiple>
                     </div>
 
                     <div class="form-group" id="imgBox">
-                        <img src="./images/default.png" alt="">
-                        <input type="hidden" name="brandLogo">
+                        <!-- <img src="./images/default.png" alt=""> -->
+                        <input type="hidden" name="picStatus">
                     </div>
 
                 </div>
+
 
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
@@ -182,9 +199,35 @@
 
 
     <!-- 准备模板 -->
- 
+      <script type="text/html" id="productTpl">
+        {{each rows v i}}
+            <tr>
+                <td>{{(i+1)+(page-1)*size}}</td>
+                <td>{{v.proName}}</td>
+                <td>{{v.proDesc}}</td>
+                <td>{{v.num}}</td>
+                <td>{{v.size}}</td>
+                <!-- statu 1 上架状态  0 下架状态 -->
+                <td>
+                    {{v.statu===1? "已上架":"已下架"}}
+                </td>
+                <td>
+                    {{if v.statu===1}}
+                    <button class="btn btn-danger">下架</button>
+                    {{else}}
+                    <button class="btn btn-success">上架</button>
+                    {{/if}}
+                </td>
+            </tr>
+        {{/each}}
+      </script>
 
 
+      <script type="text/html" id="dropdownTpl">
+        {{each rows v i}}
+            <li><a data-id="{{v.id}}" href="#">{{v.brandName}}</a></li>
+        {{/each}}
+      </script>
 
 
     <script src="./lib/jquery/jquery.min.js"></script>
