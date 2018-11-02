@@ -5,8 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>乐淘3遍</title>
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
+
+    <link rel="stylesheet" href="./css/common.css">
 </head>
 <body>
-    这是后台操作系统
+    
+    <div class="lt_aside">
+
+        <div class="brand">
+            <a href="#">黑马28期</a>
+        </div>
+
+        <div class="user">
+            <img src="./images/02.jpg" alt="">
+            <p>超级管理员</p>
+        </div>
+
+        <div class="nav">
+            <ul>
+                <li>
+                    <a href="user.html"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="category"><i class="glyphicon glyphicon-list"></i><span>分类管理</span></a>
+                    <!-- 二级列表 -->
+                    <div class="child">
+                        <a href="first.html">一级分类</a>
+                        <a href="second.html">二级分类</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="product.html"><i class="glyphicon glyphicon-tags"></i><span>商品管理</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- 右侧主体部分 -->
+    <div class="lt_main">
+
+       <!-- 头部 -->
+       <div class="lt_topbar">
+           <a href="#" class="pull-left icon_menu"><i class="glyphicon glyphicon-align-justify"></i></a>
+           <a href="#" class="pull-right icon_logout"><i class="glyphicon glyphicon-log-out"></i></a>
+       </div>
+
+       <!-- 底部内容区域 -->
+       <div class="lt_content">
+
+            <!-- 链接导航 -->
+            <ol class="breadcrumb">
+                <li><a href="index.html">管理系统</a></li>
+                <li class="active">首页</li>
+            </ol>
+
+            <div class="content">
+                
+            </div>
+
+       </div>
+
+    </div>
+
+
+
+
+
+
+    <script src="./lib/jquery/jquery.min.js"></script>
+    <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+    <script src="./lib/nprogress/nprogress.js"></script>
+
+    <script src="./js/common.js"></script>
+    <script src="./js/index.js"></script>
 </body>
 </html>
