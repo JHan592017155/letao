@@ -40,6 +40,10 @@ img {
   .mt_150 {
     margin-top: 150px;
   }
+  .mb_20 {
+    margin-bottom: 20px;
+  }
+  
 
   /* aside */
   .lt_aside{
@@ -152,4 +156,14 @@ img {
   width: 48%;
   height: 400px;
   background-color: skyblue;
+}
+
+.lt_content tbody img{
+  width: auto;
+  height: 50px;
+  margin: 0 auto;
+}
+#addModal img{
+  width: auto;
+  height: 100px;
 }
